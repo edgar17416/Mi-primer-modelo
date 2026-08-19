@@ -1,44 +1,45 @@
-import javax.swing.GroupLayout;
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+package modelo;
 
-public class Game extends JFrame {
+import java.util.ArrayList;
 
-    private int idGame;
-    private String name;
-    private String type;
-    private int levels;
-    private int amountGamers;
+public class Equipo {
+    private int idEquipo;
+    private String nombre;
+    private ArrayList<Gamer> listaGamers;
+    private long puntaje;
+    private Gamer lider;
 
-    public Game() {
-        initComponents();
-      
+    // Constructor sin parámetros
+    public Equipo() {
+        this.idEquipo = 0;
+        this.nombre = "Equipo" + this.idEquipo;
+        this.listaGamers = new ArrayList<Gamer>();
+        this.puntaje = 0;
+        this.lider = new Gamer();
     }
 
-    private void initComponents() {
-        // <editor-fold defaultstate="collapsed" desc="Generated Code">
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MY FIRST VIEW");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1117, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
-        );
-        pack();
-        // </editor-fold>
+    // Constructor completo
+    public Equipo(int idEquipo, String nombre, ArrayList<Gamer> listaGamers, long puntaje, Gamer lider) {
+        this.idEquipo = idEquipo;
+        this.nombre = nombre;
+        this.listaGamers = listaGamers;
+        this.puntaje = puntaje;
+        this.lider = lider;
     }
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Game().setVisible(true);
-            }
-        });
-    }
+    // Getters y Setters
+    public int getIdEquipo() { return idEquipo; }
+    public void setIdEquipo(int idEquipo) { this.idEquipo = idEquipo; }
+
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public ArrayList<Gamer> getListaGamers() { return listaGamers; }
+    public void setListaGamers(ArrayList<Gamer> listaGamers) { this.listaGamers = listaGamers; }
+
+    public long getPuntaje() { return puntaje; }
+    public void setPuntaje(long puntaje) { this.puntaje = puntaje; }
+
+    public Gamer getLider() { return lider; }
+    public void setLider(Gamer lider) { this.lider = lider; }
 }
